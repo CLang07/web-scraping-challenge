@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<!-- Styles table -->
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-1wig{font-weight:bold;text-align:left;vertical-align:top}
+.tg .tg-vox4{font-size:16px;font-weight:bold;text-align:left;vertical-align:top}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+
+<body>
+  <div class="container">
+
+    <!-- Created title and scrape button -->
+    <div class="jumbotron text-center" style="height:130px; padding-top:0">
+      <h1 style="font-size:50px">Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
+
+    <!-- Pull the latest mars news title and paragraph -->
+  <div >
+    <!-- <div class="col-md-12"> -->
+      <h1>Latest Mars News</h1>
+      <h4 class="paragraphs">{{mars_data.news.titles}}</h4>
+      <small>{{mars_data.news.paragraphs}}</small>
+    <!-- </div> -->
+  </div>
+  
+  <!-- Display featured mars image with table -->
+  <div class="row">
+    <div class="col-lg-8">
+        <div class="thumbnail">
+          <h1>Featured Mars Image</h1> 
+            <img src = {{mars_data.featured_image_url}}>
+        </div>
+    </div>
+    <!--Create Mars Facts Table  -->
+    <div class="col-lg-4">
+      <div class="thumbnail">
+        <h1>Mars Facts</h1> 
+          <table class="tg">
+            <thead>
+              <tr>
+                <th class="tg-vox4">Item</th>
+                <th class="tg-vox4">Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="tg-1wig">Equatorial Diameter:</td>
+                <td>{{mars_data.mars_dict.Value["Equatorial Diameter:"]}}</td>
+              </tr>
+              <tr>
+                <td class="tg-1wig">Polar Diameter:</td>
+                <td>{{mars_data.mars_dict.Value["Polar Diameter:"]}}</td>
+              </tr>
+              <tr>
+                <td class="tg-1wig">Mass:</td>
+                <td>{{mars_data.mars_dict.Value["Mass:"]}}</td>
+              </tr>
+              <tr>
+                <td class="tg-1wig">Moons:</td>
+                <td>{{mars_data.mars_dict.Value["Moons:"]}}</td>
+              </tr>
+              <tr>
+                <td class="tg-1wig">Orbit Distance:</td>
+                <td>{{mars_data.mars_dict.Value["Orbit Distance:"]}}</td>
+              </tr>
+              <tr>
+                <td class="tg-1wig">Orbit Period:</td>
+                <td>{{mars_data.mars_dict.Value["Orbit Period:"]}}</td>
+              </tr>
+              <tr>
+                <td class="tg-1wig">Surface Temperature:</td>
+                <td >{{mars_data.mars_dict.Value["Surface Temperature:"]}}</td>
+              </tr>
+              <tr>
+                <td class="tg-1wig">First Record:</td>
+                <td>{{mars_data.mars_dict.Value["First Record:"]}}</td>
+              </tr>
+              <tr>
+                <td class="tg-1wig">Recorded By:</td>
+                <td>{{mars_data.mars_dict.Value["Recorded By:"]}}</td>
+              </tr>
+
+            </tbody>  
+          </table> 
+      </div>
+    </div>
+  </div>
+
+  <!-- Generate the 4 hemispheres images and captions -->
+  <div class="container">
+    <div class="row">
+      <div class="thumbnail">
+        <h1 style="text-align:center">Mars Hemispheres</h1> 
+      </div>
+        <div class="col-md-6">
+            <div class="thumbnail">
+                <img src = {{mars_data.mars_img_dic.0.img_url}}>
+                <figcaption style="font-size:20px; font-weight:bold;">{{mars_data.mars_img_dic.0['title']}} </figcaption>
+            </div>
+        </div>
+        <div class="col-md-6"> 
+            <div class="thumbnail">
+              <img src = {{mars_data.mars_img_dic.1.img_url}}>
+              <figcaption style="font-size:20px; font-weight:bold;">{{mars_data.mars_img_dic.1.title}} </figcaption>  
+            </div>    
+        </div>
+        <div class="col-md-6">
+          <div class="thumbnail">
+              <img src = {{mars_data.mars_img_dic.2.img_url}}>
+              <figcaption style="font-size:20px; font-weight:bold;">{{mars_data.mars_img_dic.2.title}} </figcaption>
+          </div>
+      </div>
+      <div class="col-md-6"> 
+          <div class="thumbnail">
+            <img src = {{mars_data.mars_img_dic.3.img_url}}>
+            <figcaption style="font-size:20px; font-weight:bold;">{{mars_data.mars_img_dic.3.title}} </figcaption>  
+          </div>    
+      </div>
+    </div>
+</div> 
+
+
+</body>
+
+</html>
+
